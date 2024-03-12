@@ -13,7 +13,7 @@ let tb2Data = ref([
     { fck: '名称2', fqj: 2 },
     { fck: '名称3', fqj: 2 },
     { fck: '名称4', fqj: 2 },
-    { fck: '名称6', fqj: 2 }
+    { fck: '名称6', fqj: 2 },
 ])
 </script>
 
