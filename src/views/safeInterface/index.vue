@@ -1,104 +1,81 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-let networkTabs = ref('tcc')
-let tb1Data = ref([
-    { fck: 1, fqj: 2, fsj: 3, ffaj: 4, jfaj: 5 },
-    { fck: 1, fqj: 2, fsj: 3, ffaj: 4, jfaj: 5 },
-    { fck: 1, fqj: 2, fsj: 3, ffaj: 4, jfaj: 5 },
-    { fck: 1, fqj: 2, fsj: 3, ffaj: 4, jfaj: 5 },
-    { fck: 1, fqj: 2, fsj: 3, ffaj: 4, jfaj: 5 }
-])
-let tb2Data = ref([
-    { fck: '名称1', fqj: 2 },
-    { fck: '名称2', fqj: 2 },
-    { fck: '名称3', fqj: 2 },
-    { fck: '名称4', fqj: 2 },
-    { fck: '名称6', fqj: 2 },
-])
+import tccContent from './tcc/index.vue'
+import cbiContent from './cbi/index.vue'
+import rbcContent from './rbc/index.vue'
+let interfaceTabs = ref('tcc')
 </script>
 
 <template>
-    <el-tabs v-model="networkTabs">
+    <el-tabs v-model="interfaceTabs">
         <el-tab-pane label="TCC信息" name="tcc">
-            <div style="padding:10px">
-                <el-button>KZbiaozhunTCC</el-button>
-                <!-- <svg-icon name="openClose"/> -->
-                <div class="tables">
-                    <div class="lsSend">
-                        <h3> 联锁发送 </h3>
-                        <el-tabs type="border-card">
-                            <el-tab-pane label="版本信息" name="bbxx"></el-tab-pane>
-                            <el-tab-pane label="区间方向控制命令信息" name="mlxx"></el-tab-pane>
-                            <el-tab-pane label="进路信息" name="jlxx"></el-tab-pane>
-                            <el-tab-pane label="进展信号机红灯断丝信息" name="dsxx"></el-tab-pane>
-                            <el-tab-pane label="信号机调车状态信息" name="ztxx"></el-tab-pane>
-                            <el-tab-pane label="无配线站信息" name="xzxx"></el-tab-pane>
-                        </el-tabs>
-                        <el-table :data="tb1Data">
-                            <el-table-column type="index" width="80" label="序号">
-                            </el-table-column>
-                            <el-table-column property="fck" label="发车口名称">
-                            </el-table-column>
-                            <el-table-column property="fqj" label="发车请求(FQJ)">
-                            </el-table-column>
-                            <el-table-column property="fsj" label="发车锁闭(FSJ)">
-                            </el-table-column>
-                            <el-table-column property="ffaj" label="发车辅助按钮(FFAJ)">
-                            </el-table-column>
-                            <el-table-column property="jfaj" label="接车辅助按钮(JFAJ)">
-                            </el-table-column>
-                        </el-table>
-                    </div>
-                    <div class="lsReceive">
-                        <h3> 联锁接收 </h3>
-                        <el-tabs type="border-card">
-                            <el-tab-pane label="版本信息" name="bbxx"></el-tab-pane>
-                            <el-tab-pane label="区间方向" name="qjfx"></el-tab-pane>
-                            <el-tab-pane label="区间闭塞分区" name="qjbsfq"></el-tab-pane>
-                            <el-tab-pane label="发年口区间防护信号机红灯街丝" name="fnkqjfhxh"></el-tab-pane>
-                        </el-tabs>
-                        <el-table :data="tb2Data">
-                            <el-table-column type="index" width="80" label="序号">
-                            </el-table-column>
-                            <el-table-column property="fck" label="名称">
-                            </el-table-column>
-                            <el-table-column property="fqj" label="版本号">
-                            </el-table-column>
-                        </el-table>
-                    </div>
-                </div>
-
-            </div>
+                <tccContent></tccContent>
         </el-tab-pane>
-        <el-tab-pane label="RBC信息" name="rbc"></el-tab-pane>
+        <el-tab-pane label="RBC信息" name="rbc">
+            
+            <rbcContent></rbcContent>
+        </el-tab-pane>
+        <el-tab-pane label="相邻CBI信息" name="cbi">
+            
+            <cbiContent></cbiContent>
+        </el-tab-pane>
     </el-tabs>
 </template>
 
 <style scoped lang="scss">
-.tables {
-    display: flex;
-    // transform: scaleX(-1);
 
-    .lsSend {
-        flex: 1;
-        width: 45%;
+::v-deep .el-tabs__header{
+    display: inline-block;   
+    margin:0; 
+    & .el-tabs__active-bar{
+        display: none;
+    }
+}
+::v-deep .tables .el-tabs__header{
+    display:block;    
+    
+}
+::v-deep .el-tabs__item{
+    font-size: 14pt !important;
+        padding:0 10px !important;
+    &.is-active{
+        background-color: #00ffff;
+        color:#333;
+        padding:0 10px !important;
+
+    }
+}
+::v-deep .el-tabs--border-card>.el-tabs__header {
+    background-color: #191970;
+
+    .el-tabs__item {
+        color: #fff;
+        &.is-active {
+            background-color: #00ffff;
+            color: #333;
+        }
     }
 
-    .lsReceive {
-        flex: 1;
-    }
-
-    h3 {
-        text-align: center;
+    .el-tabs__nav-prev,
+    .el-tabs__nav-next {
+        color: #fff;
     }
 }
 
-::v-deep .el-table__header {
-    .cell {
-        white-space: nowrap;
+::v-deep .el-table {
+    height: 50vh;
+
+    &.el-table th.el-table__cell {
+        background-color: #191970;
     }
-}
-::v-deep .tables .el-tabs__content{
-    display: none;
+
+    .el-scrollbar {
+
+        background-color: #4682b4;
+    }
+
+    tr {
+        background-color: transparent;
+    }
 }
 </style>

@@ -7,4 +7,4 @@ export function getClock() {
     const minutes = now.getMinutes();
     
     return `${hours}:${minutes<10?'0'+minutes:minutes}`
-}
+}// 按照惯例，组合式函数名以“use”开头

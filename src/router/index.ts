@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import rtStation from "@/views/rtStation/index.vue"
 import safeInterface from "@/views/safeInterface/index.vue"
+import alarmDiagnosis from "@/views/alarmDiagnosis/index.vue"
+import driver from "@/views/driver/index.vue"
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -15,6 +17,18 @@ const routes: Array<RouteRecordRaw> = [
         path: '/interface',
         name: "interface",
         component: safeInterface,
+        children:[],
+    },
+    {
+        path: '/alarm',
+        name: "alarm",
+        component: alarmDiagnosis,
+        children:[],
+    },
+    {
+        path: '/driver',
+        name: "driver",
+        component: driver,
         children:[],
     }
 ]
