@@ -8,6 +8,8 @@ let tb1Data = ref([
     { data: 1 },
     { data: 1 }
 ])
+const cbiSendTabs = ref('bbxx')
+const cbiReceiveTabs = ref('bbxx')
 let tb2Data = ref([
     { data: '名称1' },
     { data: '名称2'},
@@ -23,7 +25,7 @@ let tb2Data = ref([
             <div class="tables">
                 <div class="lsSend">
                     <h3> 联锁发送 </h3>
-                    <el-tabs type="border-card" >
+                    <el-tabs type="border-card" v-model="cbiSendTabs">
                         <el-tab-pane label="版本信息" name="bbxx"></el-tab-pane>
                         <el-tab-pane label="发送信息" name="info"></el-tab-pane>
                         <el-tab-pane label="发送数据" name="data"></el-tab-pane>
@@ -37,7 +39,7 @@ let tb2Data = ref([
                 </div>
                 <div class="lsReceive">
                     <h3> 联锁接收 </h3>
-                    <el-tabs type="border-card">
+                    <el-tabs type="border-card" v-model="cbiReceiveTabs">
                         <el-tab-pane label="版本信息" name="bbxx"></el-tab-pane>
                         <el-tab-pane label="接收信息" name="info"></el-tab-pane>
                         <el-tab-pane label="接收数据" name="data"></el-tab-pane>

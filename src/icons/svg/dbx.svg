@@ -1,0 +1,48 @@
+<svg viewBox="0 0 1485 558" version="1.2" xmlns="http://www.w3.org/2000/svg">
+
+    <g>
+        <rect width="300" height="100" x="20" y="20" style="fill:#fff;stroke-width:3;stroke:#000" />
+        <rect width="280" height="80" x="30" y="30" style="fill:#fff;stroke-width:3;stroke:#000" />
+    </g>
+    <g>
+        <path d="M20 20 l0 8 q 8 0 8 -8" fill='#000'></path>
+        <path d="M20 120 l8 0 q 0 -8 -8 -8" fill='#000'></path>
+        <path d="M320 120 l-8 0 q 0 -8 8 -8" fill='#000'></path>
+        <path d="M320 20 l-8 0 q 0 8 8 8" fill='#000'></path>
+    </g>
+
+    <g>
+        <path d="M60 60 l15 15 q 100 -20 200 0 l15 -15" stroke="#333" fill="none" stroke-width="3"></path>
+    </g>
+
+    <g>
+        <path d="M165 75 l20 0 l-10 18 l0 0" fill="#333"></path>
+        <path d="M110 50 l15 -5 l-1 20" fill="#333"></path>
+        <path d="M225 45 l15 5 l-12 15" fill="#333"></path>
+    </g>
+</svg>
+<!-- 
+  <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="200"
+    height="200">
+
+                <g>
+                    <rect width="300" height="100" x="20" y="20" style="fill:#fff;stroke-width:3;stroke:#000" />
+                    <rect width="260" height="80" x="30" y="30" style="fill:#fff;stroke-width:3;stroke:#000" />
+                </g>
+                <g>
+                    <path d="M20 20 l0 8 q 8 0 8 -8" fill='#000'></path>
+                    <path d="M20 120 l8 0 q 0 -8 -8 -8" fill='#000'></path>
+                    <path d="M300 120 l-8 0 q 0 -8 8 -8" fill='#000'></path>
+                    <path d="M300 20 l-8 0 q 0 8 8 8" fill='#000'></path>
+                </g>
+
+                <g>
+                    <path d="M40 60 l15 15 q 100 -20 200 0 l15 -15" stroke="#333" fill="none" stroke-width="3"></path>
+                </g>
+
+                <g>
+                    <path d="M145 75 l20 0 l-10 18 l0 0"></path>
+                    <path d="M90 50 l15 -5 l-1 20"></path>
+                    <path d="M205 45 l15 5 l-12 15"></path>
+                </g>
+            </svg> -->

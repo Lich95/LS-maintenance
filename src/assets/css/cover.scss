@@ -1,6 +1,12 @@
 :root {
 
-    --el-bg-color: #242933;
+    --el-bg-color: #4682b4;
+
+    --el-menu-text-color:#fff;
+    --el-menu-bg-color:#191970;
+
+    --el-text-color-primary:#fff;
+
 
     .el-table,
     .el-table thead {
@@ -14,8 +20,7 @@
     .el-checkbox-group span{
         color:#fff;
     }
-    --el-menu-text-color:#fff;
-    --el-menu-bg-color:#191970;
-
-    --el-text-color-primary:#fff;
+    .el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell{
+        background-color: transparent;
+    }
 }

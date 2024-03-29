@@ -3,6 +3,7 @@ import rtStation from "@/views/rtStation/index.vue"
 import safeInterface from "@/views/safeInterface/index.vue"
 import alarmDiagnosis from "@/views/alarmDiagnosis/index.vue"
 import driver from "@/views/driver/index.vue"
+import network from "@/views/network/index.vue"
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -29,6 +30,12 @@ const routes: Array<RouteRecordRaw> = [
         path: '/driver',
         name: "driver",
         component: driver,
+        children:[],
+    },
+    {
+        path: '/network',
+        name: "network",
+        component: network,
         children:[],
     }
 ]

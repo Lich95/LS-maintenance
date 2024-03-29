@@ -51,9 +51,15 @@ const alarmData = ref([
     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
   </el-select>
 
+  <el-button>清除</el-button>
+  <el-button>查询</el-button>
+
+  <span>记录条数</span>
+  <el-input style="width: 50px" ></el-input>
+
   <el-button>打印</el-button>
 
-  <el-table :data="alarmData">
+  <el-table border :data="alarmData" height="calc(100vh - 98px)" style="background-color: #4682b4">
 
     <el-table-column type="index" width="80" label="序号">
     </el-table-column>
@@ -93,11 +99,20 @@ const alarmData = ref([
     text-align: center;
   }
 }
-
+.el-checkbox-group{
+  display: inline-block;
+  margin-right: 40px;
+}
 ::v-deep .el-table__header {
+  .el-table__cell{
+    background-color: #191970;
+  }
   .cell {
     white-space: nowrap;
   }
+}
+::v-deep .el-table tr{
+  background-color:#4682b4 !important
 }
 
 ::v-deep .tables .el-tabs__content {
