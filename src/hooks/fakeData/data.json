@@ -52,77 +52,77 @@
                         "childs": null,
                         "name": "版本信息",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 8,
                         "childs": null,
                         "name": "区间方向",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 9,
                         "childs": null,
                         "name": "区间闭塞分区",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 10,
                         "childs": null,
                         "name": "发车口区间防护信号机红灯段色",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 11,
                         "childs": null,
                         "name": "信号限速",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 12,
                         "childs": null,
                         "name": "异物侵限灾害",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 13,
                         "childs": null,
                         "name": "无配线站区间方向",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 14,
                         "childs": null,
                         "name": "无配线站轨道状态",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 15,
                         "childs": null,
                         "name": "无配线站区间信号机红灯断丝",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 16,
                         "childs": null,
                         "name": "无配线站信号采集",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     },
                     {
                         "id": 17,
                         "childs": null,
                         "name": "改方信息",
                         "parentId": 1,
-                        "type": "send"
+                        "type": "rec"
                     }
                 ],
                 "name": "KZbiaozhunTCC",

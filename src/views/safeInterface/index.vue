@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import axios from 'axios'
+import {getTableColumn,getTabName} from '@/hooks/tableColumn/index.js'
 
 import data from '@/hooks/fakeData/data.json'
 let interfaceTabs = ref()
@@ -13,12 +14,26 @@ const checkSendAndRevice = (list) => {
         return true
     }
 }
-const filterSendOrRevice = (list, type) => {
+const changeTabs1 =(name:string)=>{
+    mapColumns1.value = getTableColumn(name)
+}
+const changeTabs2 =(name:string)=>{
+    mapColumns2.value = getTableColumn(name)
+}
+// console.log(78,getColumn('版本信息'));
+const mapColumns1 = ref(getTableColumn('版本信息'))
+const mapColumns2 = ref(getTableColumn('版本信息'))
+const filterSendOrRevice = (list:Object[], type:string) => {
     return list.filter(x => x.type == type)
 }
 
 setTimeout(()=>{
     tabsData.value =data.tabs
+    interfaceTabs.value = data.tabs[0].name
+    secTabs.value =  data.tabs[0].childs[0].name
+    
+
+
     console.log(data.tabs);
     
     console.log(123,data.data);
@@ -56,31 +71,50 @@ setTimeout(()=>{
 
 <template>
     <el-tabs v-model="interfaceTabs">
-        <el-tab-pane v-for="item in tabsData" :label="item.name" :name="item.id">
+        <el-tab-pane v-for="item in tabsData" :label="getTabName(item.name)" :name="item.name">
            <el-tabs v-model="secTabs">
-                 <el-tab-pane v-for="ite in item.childs" :label="ite.name" :name="ite.id">
+                 <el-tab-pane v-for="ite in item.childs" :label="getTabName(ite.name)" :name="ite.name">
                     <div class="SendAndReviceTables" v-if="checkSendAndRevice(ite)">
                         <div class="lsSend">
                             <h3> 联锁发送 </h3>
-                            <el-tabs type="border-card">
-                                <el-tab-pane v-for="it in filterSendOrRevice(ite.childs, 'send')" :label="it.name"
-                                    :name="it.id"></el-tab-pane>
+                            <el-tabs type="border-card" @tab-change="changeTabs1" v-model="tableTab">
+                                <el-tab-pane v-for="it in filterSendOrRevice(ite.childs, 'send')" :label="getTabName(it.name)"
+                                    :name="it.name"></el-tab-pane>
                             </el-tabs>
-                        </div>
-                        <div class="lsReceive">
-                            <h3> 联锁接收 </h3>
-                            <el-tabs type="border-card">
-                                <el-tab-pane v-for="it in filterSendOrRevice(ite.childs, 'rec')" :label="it.name"
-                                    :name="it.id"></el-tab-pane>
+                            <el-table border>
+                                <el-table-column type="index" width="80" label="序号">
+                            </el-table-column>
+                            <el-table-column v-for="item in mapColumns1" :property="item.property" :label="item.label">
+                            </el-table-column>
+                                </el-table>
+                            </div>
+                            <div class="lsReceive">
+                                <h3> 联锁接收 </h3>
+                                <el-tabs type="border-card" @tab-change="changeTabs2">
+                                    <el-tab-pane v-for="it in filterSendOrRevice(ite.childs, 'rec')" :label="getTabName(it.name)"
+                                        :name="it.name"></el-tab-pane>
                             </el-tabs>
+                            <el-table border>
+                                <el-table-column type="index" width="80" label="序号">
+                            </el-table-column>
+                            <el-table-column v-for="item in mapColumns2" :property="item.property" :label="item.label">
+                            </el-table-column>
+                                </el-table>
                             
                         </div>
                     </div>
 
                     <div class="lsAll" v-else>
-                        <el-tabs type="border-card">
-                            <el-tab-pane v-for="it in ite.childs" :label="it.name" :name="it.name"></el-tab-pane>
+                        <el-tabs type="border-card" v-if="ite.childs.length">
+                            <el-tab-pane v-for="it in ite.childs" :label="getTabName(it.name)" :name="it.name"></el-tab-pane>
                         </el-tabs>
+                        
+                        <el-table border>
+                                <el-table-column type="index" width="80" label="序号">
+                            </el-table-column>
+                            <el-table-column v-for="item in mapColumns2" :property="item.property" :label="item.label">
+                            </el-table-column>
+                                </el-table>
                     </div>
                 </el-tab-pane>
             </el-tabs> 
@@ -145,6 +179,10 @@ setTimeout(()=>{
     &.el-table th.el-table__cell {
         background-color: #191970;
     }
+    .cell{
+        white-space: nowrap;
+    }
+
 
     .el-scrollbar {
 
@@ -155,18 +193,57 @@ setTimeout(()=>{
         background-color: transparent;
     }
 }
-::v-deep .lsSend,.lsReceive,.lsAll{.el-tabs__header.is-top{
-    width: 100%
+::v-deep .lsSend{
+    .el-tabs__header.is-top{
+     width: 100%
+    }
+    .el-tabs__item{
+        border: 2px solid #fff;
+    }
 }
+::v-deep .lsReceive{
+    .el-tabs__header.is-top{
+     width: 100%
+    }
+    .el-tabs__item{
+        border: 2px solid #fff;
+    }
+
+}
+::v-deep .lsAll{
+    .el-tabs__header.is-top{
+     width: 100%
+    }
+    & .el-tabs{
+        height: 38px;
+        display: inline-block;
+    }
+    .el-tabs__item{
+        border: 2px solid #fff;
+    }
+
 }
 .SendAndReviceTables{
     display: flex;
+    gap:10px;
     &>div{
         flex:1;width:50vh;
     }
+    & .el-tabs{
+        height: 38px;
+    }
+    h3{
+        text-align: center;
+        margin:8px 0 5px
+    }
 }
 
-::v-deep .SendAndReviceTables,.lsAll{
+::v-deep .SendAndReviceTables{
+    .el-tabs__content{
+    display: none;
+}
+}
+::v-deep .lsAll{
     .el-tabs__content{
     display: none;
 }
