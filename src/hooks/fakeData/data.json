@@ -1,0 +1,329 @@
+{"tabs":[
+    {
+        "id": 1,
+        "childs": [
+            {
+                "id": 1,
+                "childs": [
+                    {
+                        "id": 1,
+                        "childs": null,
+                        "name": "版本信息",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 2,
+                        "childs": null,
+                        "name": "区间方向控制命令信息",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 3,
+                        "childs": null,
+                        "name": "进路信息",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 4,
+                        "childs": null,
+                        "name": "进站信号机红灯断丝信息",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 5,
+                        "childs": null,
+                        "name": "信号机调车状态信息",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 6,
+                        "childs": null,
+                        "name": "无配线站信号机控制信息",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 7,
+                        "childs": null,
+                        "name": "版本信息",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 8,
+                        "childs": null,
+                        "name": "区间方向",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 9,
+                        "childs": null,
+                        "name": "区间闭塞分区",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 10,
+                        "childs": null,
+                        "name": "发车口区间防护信号机红灯段色",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 11,
+                        "childs": null,
+                        "name": "信号限速",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 12,
+                        "childs": null,
+                        "name": "异物侵限灾害",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 13,
+                        "childs": null,
+                        "name": "无配线站区间方向",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 14,
+                        "childs": null,
+                        "name": "无配线站轨道状态",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 15,
+                        "childs": null,
+                        "name": "无配线站区间信号机红灯断丝",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 16,
+                        "childs": null,
+                        "name": "无配线站信号采集",
+                        "parentId": 1,
+                        "type": "send"
+                    },
+                    {
+                        "id": 17,
+                        "childs": null,
+                        "name": "改方信息",
+                        "parentId": 1,
+                        "type": "send"
+                    }
+                ],
+                "name": "KZbiaozhunTCC",
+                "parentId": 1,
+                "type": null
+            }
+        ],
+        "name": "TCC信息",
+        "parentId": null,
+        "type": null
+    },
+    {
+        "id": 2,
+        "childs": [
+            {
+                "id": 2,
+                "childs": [
+                    {
+                        "id": 18,
+                        "childs": null,
+                        "name": "版本信息",
+                        "parentId": 2,
+                        "type": "rec"
+                    },
+                    {
+                        "id": 19,
+                        "childs": null,
+                        "name": "进路信息",
+                        "parentId": 2,
+                        "type": "rec"
+                    },
+                    {
+                        "id": 20,
+                        "childs": null,
+                        "name": "紧急区",
+                        "parentId": 2,
+                        "type": "rec"
+                    }
+                ],
+                "name": "RBC1",
+                "parentId": 2,
+                "type": null
+            },
+            {
+                "id": 3,
+                "childs": [],
+                "name": "RBC2",
+                "parentId": 2,
+                "type": null
+            }
+        ],
+        "name": "RBC信息",
+        "parentId": null,
+        "type": null
+    },
+    {
+        "id": 3,
+        "childs": [
+            {
+                "id": 4,
+                "childs": [
+                    {
+                        "id": 21,
+                        "childs": null,
+                        "name": "版本信息",
+                        "parentId": 4,
+                        "type": "rec"
+                    },
+                    {
+                        "id": 22,
+                        "childs": null,
+                        "name": "发送信息",
+                        "parentId": 4,
+                        "type": "rec"
+                    },
+                    {
+                        "id": 23,
+                        "childs": null,
+                        "name": "发送数据",
+                        "parentId": 4,
+                        "type": "rec"
+                    },
+                    {
+                        "id": 24,
+                        "childs": null,
+                        "name": "版本信息",
+                        "parentId": 4,
+                        "type": "send"
+                    },
+                    {
+                        "id": 25,
+                        "childs": null,
+                        "name": "接收信息",
+                        "parentId": 4,
+                        "type": "send"
+                    },
+                    {
+                        "id": 26,
+                        "childs": null,
+                        "name": "接收数据",
+                        "parentId": 4,
+                        "type": "send"
+                    }
+                ],
+                "name": "A客专车站",
+                "parentId": 3,
+                "type": null
+            }
+        ],
+        "name": "相邻CBI信息",
+        "parentId": null,
+        "type": null
+    }
+],
+"data":[
+    {
+        "id": 1,
+        "departName": "X",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00100010",
+        "jfaj": "00100010",
+        "createTime": "2024-02-27 15:05:25",
+        "updateTime": "2024-03-26 16:04:34",
+        "serialNum": 1
+    },
+    {
+        "id": 2,
+        "departName": "XN",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00010001",
+        "jfaj": "00010001",
+        "createTime": "2024-02-27 15:06:11",
+        "updateTime": "2024-03-26 16:05:23",
+        "serialNum": 1
+    },
+    {
+        "id": 3,
+        "departName": "XCN",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00100010",
+        "jfaj": "00100010",
+        "createTime": "2024-02-27 15:06:11",
+        "updateTime": "2024-03-26 16:04:34",
+        "serialNum": 1
+    },
+    {
+        "id": 4,
+        "departName": "SA",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00100010",
+        "jfaj": "00100010",
+        "createTime": "2024-02-27 15:06:11",
+        "updateTime": "2024-03-26 16:04:34",
+        "serialNum": 1
+    },
+    {
+        "id": 5,
+        "departName": "SAN",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00100010",
+        "jfaj": "00100010",
+        "createTime": "2024-02-27 15:06:11",
+        "updateTime": "2024-03-26 16:04:34",
+        "serialNum": 1
+    },
+    {
+        "id": 6,
+        "departName": "S",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00100010",
+        "jfaj": "00100010",
+        "createTime": "2024-02-27 15:06:11",
+        "updateTime": "2024-03-26 16:04:34",
+        "serialNum": 1
+    },
+    {
+        "id": 7,
+        "departName": "SN",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00100010",
+        "jfaj": "00100010",
+        "createTime": "2024-02-27 15:06:11",
+        "updateTime": "2024-03-26 16:04:34",
+        "serialNum": 1
+    },
+    {
+        "id": 8,
+        "departName": "XD",
+        "fqj": "00100010",
+        "fsj": "00100010",
+        "ffaj": "00100010",
+        "jfaj": "00100010",
+        "createTime": "2024-02-27 15:06:11",
+        "updateTime": "2024-03-26 16:04:34",
+        "serialNum": 1
+    }
+]}
