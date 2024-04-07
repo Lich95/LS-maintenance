@@ -6,7 +6,11 @@ import {getTableColumn,getTabName} from '@/hooks/tableColumn/index.js'
 import data from '@/hooks/fakeData/data.json'
 let interfaceTabs = ref()
 let secTabs = ref()
+const tableTab = ref();
 const tabsData = ref([])
+const sendTableData = ref([])
+const mapColumns1 = ref(getTableColumn('VIRINFOS'))
+const mapColumns2 = ref(getTableColumn('VIRINFOR'))
 const checkSendAndRevice = (list) => {
     if (list.parentId == 2) {
         return false
@@ -14,15 +18,16 @@ const checkSendAndRevice = (list) => {
         return true
     }
 }
-const changeTabs1 =(name:string)=>{
-    mapColumns1.value = getTableColumn(name)
+
+const changeTabs1 =(name:string)=>{  
+    mapColumns1.value = getTableColumn(name);    
+    sendTableData.value = data.data[name]
 }
+
 const changeTabs2 =(name:string)=>{
     mapColumns2.value = getTableColumn(name)
 }
 // console.log(78,getColumn('版本信息'));
-const mapColumns1 = ref(getTableColumn('版本信息'))
-const mapColumns2 = ref(getTableColumn('版本信息'))
 const filterSendOrRevice = (list:Object[], type:string) => {
     return list.filter(x => x.type == type)
 }
@@ -34,9 +39,9 @@ setTimeout(()=>{
     
 
 
-    console.log(data.tabs);
+    // console.log(data.tabs);
     
-    console.log(123,data.data);
+    // console.log(123,data.data);
     
     
 },0)
@@ -44,18 +49,19 @@ setTimeout(()=>{
 
 // axios({
 //     method: 'post',
-//     url: 'http://192.168.0.101:8081/mmt/init/getLevel',
+//     url: 'http://169.254.123.33:8081/mmt/init/getLevel',
 //     data: {}
 // }).then(res => {
+//     console.log(234,res);
+    
 //     tabsData.value = res.data.data
-//     console.log(tabsData);
-//     interfaceTabs.value = tabsData.value[0].name
+//     // interfaceTabs.value = tabsData.value[0].name
 
 // })
 
 // axios({
 //     method: 'post',
-//     url: 'http://192.168.0.101:8081/mmt/init/querySITCCData',
+//     url: 'http://169.254.123.33:8081/mmt/init/querySITCCData',
 //     data: {
 //         "id": 2,
 //         "serialNum": 1
@@ -81,7 +87,7 @@ setTimeout(()=>{
                                 <el-tab-pane v-for="it in filterSendOrRevice(ite.childs, 'send')" :label="getTabName(it.name)"
                                     :name="it.name"></el-tab-pane>
                             </el-tabs>
-                            <el-table border>
+                            <el-table border :data="sendTableData">
                                 <el-table-column type="index" width="80" label="序号">
                             </el-table-column>
                             <el-table-column v-for="item in mapColumns1" :property="item.property" :label="item.label">
