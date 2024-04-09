@@ -12,7 +12,7 @@ import headerTab from "@/components/headerTab/index.vue"
 <style >
 body{
   margin:0;padding:0px;
-  background-color: #191970 ;;
+  background-color: #191970;
   color:#fff;
   font-size: 14pt;
 }

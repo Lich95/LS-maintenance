@@ -30,36 +30,42 @@ const value = ref<string[]>([])
 const loading = ref(false);
 
 const alarmData = ref([
-  {time:'1',from:'2',info:'3',satte:'4',level:'5',restoreTime:'6'},
-  {time:'1',from:'2',info:'3',satte:'4',level:'5',restoreTime:'6'},
-  {time:'1',from:'2',info:'3',satte:'4',level:'5',restoreTime:'6'},
-  {time:'1',from:'2',info:'3',satte:'4',level:'5',restoreTime:'6'}
+  { time: '1', from: '2', info: '3', satte: '4', level: '5', restoreTime: '6' },
+  { time: '1', from: '2', info: '3', satte: '4', level: '5', restoreTime: '6' },
+  { time: '1', from: '2', info: '3', satte: '4', level: '5', restoreTime: '6' },
+  { time: '1', from: '2', info: '3', satte: '4', level: '5', restoreTime: '6' }
 ])
 </script>
 
 <template>
-  <el-checkbox-group v-model="checkList" @change="gocheck">
-    <el-checkbox value="levelOne" label="一级报警" />
-    <el-checkbox label="二级报警" value="levelTwo" />
-    <el-checkbox label="三级报警" value="levelThree" />
-    <el-checkbox label="事件信息" value="event" />
-    <el-checkbox label="已恢复" value="done" />
-  </el-checkbox-group>
-  <span>关键字搜索</span>
-  <el-select v-model="value" multiple filterable remote reserve-keyword placeholder="" remote-show-suffix
-    :remote-method="remoteMethod" style="width: 240px">
-    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-  </el-select>
+  <div class="searchDiv">
+    <el-checkbox-group v-model="checkList" @change="gocheck">
+      <el-checkbox value="levelOne" label="一级报警" />
+      <el-checkbox label="二级报警" value="levelTwo" />
+      <el-checkbox label="三级报警" value="levelThree" />
+      <el-checkbox label="事件信息" value="event" />
+      <el-checkbox label="已恢复" value="done" />
+    </el-checkbox-group>
+    <div>
+      <span>关键字搜索</span>
+      <el-select v-model="value" multiple filterable remote reserve-keyword placeholder="" remote-show-suffix
+        :remote-method="remoteMethod" style="width: 240px">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+      </el-select>
+    </div>
 
-  <el-button>清除</el-button>
-  <el-button>查询</el-button>
+    <div>
+      <el-button>清除</el-button>
+      <el-button>查询</el-button>
+    </div>
+    <div>
+      <span>记录条数</span>
+      <el-input style="width: 50px"></el-input>
+    </div>
+    <el-button>打印</el-button>
+  </div>
 
-  <span>记录条数</span>
-  <el-input style="width: 50px" ></el-input>
-
-  <el-button>打印</el-button>
-
-  <el-table border :data="alarmData" height="calc(100vh - 98px)" style="background-color: #4682b4">
+  <el-table border :data="alarmData" height="calc(100vh - 114px)" style="background-color: #4682b4;font-size:20px">
 
     <el-table-column type="index" width="80" label="序号">
     </el-table-column>
@@ -82,40 +88,32 @@ const alarmData = ref([
 </template>
 
 <style scoped lang="scss">
-.tables {
+.searchDiv {
+  font-size: 14px;
+  height: 50px;
   display: flex;
-  // transform: scaleX(-1);
-
-  .lsSend {
-    flex: 1;
-    width: 45%;
-  }
-
-  .lsReceive {
-    flex: 1;
-  }
-
-  h3 {
-    text-align: center;
-  }
+  align-items: center;
+  justify-content: space-evenly;
 }
-.el-checkbox-group{
+
+.el-checkbox-group {
   display: inline-block;
   margin-right: 40px;
 }
+
 ::v-deep .el-table__header {
-  .el-table__cell{
+  .el-table__cell {
     background-color: #191970;
   }
+
   .cell {
+  // font-size: 20px;
     white-space: nowrap;
   }
 }
-::v-deep .el-table tr{
-  background-color:#4682b4 !important
+
+::v-deep .el-table tr {
+  background-color: #4682b4 !important
 }
 
-::v-deep .tables .el-tabs__content {
-  display: none;
-}
 </style>

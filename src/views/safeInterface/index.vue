@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref ,computed} from 'vue'
 import axios from 'axios'
 import {getTableColumn,getTabName} from '@/hooks/tableColumn/index.js'
 
 import data from '@/hooks/fakeData/data.json'
 let interfaceTabs = ref()
 let secTabs = ref()
-const tableTab = ref();
+const table1Tab = ref();
+const table2Tab = ref();
 const tabsData = ref([])
 const sendTableData = ref([])
-const mapColumns1 = ref(getTableColumn('VIRINFOS'))
-const mapColumns2 = ref(getTableColumn('VIRINFOR'))
+const recTableData = ref([])
+
+
+const mapColumns1 = ref(getTableColumn('VIRINFOS')) 
+const mapColumns2= ref(getTableColumn('VIRINFOR')) 
+
 const checkSendAndRevice = (list) => {
     if (list.parentId == 2) {
         return false
@@ -20,12 +25,13 @@ const checkSendAndRevice = (list) => {
 }
 
 const changeTabs1 =(name:string)=>{  
-    mapColumns1.value = getTableColumn(name);    
+ mapColumns1.value = getTableColumn(name)
     sendTableData.value = data.data[name]
 }
 
 const changeTabs2 =(name:string)=>{
-    mapColumns2.value = getTableColumn(name)
+ mapColumns2.value = getTableColumn(name)
+    recTableData.value = data.data[name]
 }
 // console.log(78,getColumn('版本信息'));
 const filterSendOrRevice = (list:Object[], type:string) => {
@@ -36,7 +42,12 @@ setTimeout(()=>{
     tabsData.value =data.tabs
     interfaceTabs.value = data.tabs[0].name
     secTabs.value =  data.tabs[0].childs[0].name
+    table1Tab.value = 'VIRINFOS'
+    table2Tab.value = 'VIRINFOR'
     
+    recTableData.value = data.data['VIRINFOR']
+    sendTableData.value = data.data['VIRINFOS']
+
 
 
     // console.log(data.tabs);
@@ -83,27 +94,27 @@ setTimeout(()=>{
                     <div class="SendAndReviceTables" v-if="checkSendAndRevice(ite)">
                         <div class="lsSend">
                             <h3> 联锁发送 </h3>
-                            <el-tabs type="border-card" @tab-change="changeTabs1" v-model="tableTab">
+                            <el-tabs type="border-card" @tab-change="changeTabs1" v-model="table1Tab">
                                 <el-tab-pane v-for="it in filterSendOrRevice(ite.childs, 'send')" :label="getTabName(it.name)"
                                     :name="it.name"></el-tab-pane>
                             </el-tabs>
                             <el-table border :data="sendTableData">
                                 <el-table-column type="index" width="80" label="序号">
                             </el-table-column>
-                            <el-table-column v-for="item in mapColumns1" :property="item.property" :label="item.label">
+                            <el-table-column v-for="item in mapColumns1" :property="item.property" :key="item.property" :label="item.label">
                             </el-table-column>
                                 </el-table>
                             </div>
                             <div class="lsReceive">
                                 <h3> 联锁接收 </h3>
-                                <el-tabs type="border-card" @tab-change="changeTabs2">
+                                <el-tabs type="border-card" @tab-change="changeTabs2" v-model="table2Tab">
                                     <el-tab-pane v-for="it in filterSendOrRevice(ite.childs, 'rec')" :label="getTabName(it.name)"
                                         :name="it.name"></el-tab-pane>
                             </el-tabs>
-                            <el-table border>
+                            <el-table border :data="recTableData">
                                 <el-table-column type="index" width="80" label="序号">
                             </el-table-column>
-                            <el-table-column v-for="item in mapColumns2" :property="item.property" :label="item.label">
+                            <el-table-column v-for="item in mapColumns2" :property="item.property" :key="item.property" :label="item.label">
                             </el-table-column>
                                 </el-table>
                             
